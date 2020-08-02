@@ -31,7 +31,19 @@ class VictorianFloraModelVictorianFlora extends JModelItem
 	{
 		if (!isset($this->message))
 		{
-			$this->message = 'Victorian Flora';
+			$jinput = JFactory::getApplication()->input;
+			$id     = $jinput->get('id', 1, 'INT');
+
+			switch ($id)
+			{
+				case 2:
+					$this->message = 'Amphibromus neesii';
+					break;
+				default:
+				case 1:
+					$this->message = 'Amphibromus macrorhinus';
+					break;
+			}
 		}
 
 		return $this->message;
