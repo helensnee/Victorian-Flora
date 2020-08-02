@@ -3,17 +3,17 @@
 	<layout title="COM_VICTORIANFLORA_VICTORIANFLORA_VIEW_DEFAULT_TITLE">
 		<message>COM_VICTORIANFLORA_VICTORIANFLORA_VIEW_DEFAULT_DESC</message>
 	</layout>
-		<fields name="request">
-		<fieldset name="request">
-			<field
+		<fields 
+			name="request"
+			addfieldpath="/administrator/components/com_victorianflora/models/fields"
+			>
+			<fieldset name="request">
+				<field
 					name="id"
-					type="list"
-					label="COM_VICTORIANFLORA_VICTORIANFLORA_FIELD_GREETING_LABEL"
-					description="COM_VICTORIANFLORA_VICTORIANFLORA_FIELD_GREETING_DESC"
-					default="1">
-                                <option value="1">Amphibromus macrorhinus</option>
-                                <option value="2">Amphibromus neesii</option>
-            </field>
-		</fieldset>
+					type="victorianflora"
+					label="COM_VICTORIANFLORA_VICTORIANFLORA_FIELD_BOTANICALNAME_LABEL"
+					description="COM_VICTORIANFLORA_VICTORIANFLORA_FIELD_BOTANICALNAME_DESC"
+					/>				
+			</fieldset>
 		</fields>
 </metadata>
