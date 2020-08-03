@@ -51,7 +51,7 @@ defined('_JEXEC') or die('Restricted Access');
 							<?php echo $row->BotanicalName; ?>
 						</td>
 						<td align="center">
-							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'victorianfloras.', true, 'cb'); ?>
+							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'victorianfloras.', false, 'cb'); ?>
 						</td>
 						<td align="center">
 							<?php echo $row->id; ?>
@@ -61,4 +61,6 @@ defined('_JEXEC') or die('Restricted Access');
 			<?php endif; ?>
 		</tbody>
 	</table>
+	<input type="hidden" name="task" value="" />
+	<input type="hidden" name="boxchecked" value="0" />
 </form>
