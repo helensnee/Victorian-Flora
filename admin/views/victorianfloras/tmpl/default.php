@@ -18,8 +18,14 @@ defined('_JEXEC') or die('Restricted Access');
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
-			<th width="90%">
-				<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_NAME') ;?>
+			<th width="10%">
+				<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_PLANTNO') ;?>
+			</th>
+			<th width="50%">
+				<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_BOTANICALNAME') ;?>
+			</th>
+			<th width="30%">
+				<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_COMMONNAME') ;?>
 			</th>
 			<th width="5%">
 				<?php echo JText::_('COM_VICTORIANFLORA_PUBLISHED'); ?>
@@ -48,7 +54,13 @@ defined('_JEXEC') or die('Restricted Access');
 							<?php echo JHtml::_('grid.id', $i, $row->id); ?>
 						</td>
 						<td>
+							<?php echo $row->PlantNo; ?>
+						</td>
+						<td>
 							<?php echo $row->BotanicalName; ?>
+						</td>
+						<td>
+							<?php echo $row->CommonName ; ?>
 						</td>
 						<td align="center">
 							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'victorianfloras.', false, 'cb'); ?>

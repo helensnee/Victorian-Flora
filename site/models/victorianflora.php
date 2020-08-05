@@ -65,7 +65,7 @@ class VictorianFloraModelVictorianFlora extends JModelItem
 			$table->load($id);
 
 			// Assign the message
-			$this->messages[$id] = $table->BotanicalName;
+			$this->messages[$id] = $table->CommonName;
 		}
 
 		return $this->messages[$id];
