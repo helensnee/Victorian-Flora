@@ -44,8 +44,9 @@ defined('_JEXEC') or die('Restricted Access');
 		</tfoot>
 		<tbody>
 			<?php if (!empty($this->items)) : ?>
-				<?php foreach ($this->items as $i => $row) : ?>
-
+				<?php foreach ($this->items as $i => $row) : 
+				$link = JRoute::_('index.php?option=com_victorianflora&task=victorianflora.edit&id=' . $row->id);
+				?>
 					<tr>
 						<td>
 							<?php echo $this->pagination->getRowOffset($i); ?>
@@ -57,13 +58,15 @@ defined('_JEXEC') or die('Restricted Access');
 							<?php echo $row->PlantNo; ?>
 						</td>
 						<td>
-							<?php echo $row->BotanicalName; ?>
+							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_VICTORIANFLORA_EDIT_VICTORIANFLORA'); ?>">
+								<?php echo $row->BotanicalName; ?>
+							</a>
 						</td>
 						<td>
 							<?php echo $row->CommonName ; ?>
 						</td>
 						<td align="center">
-							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'victorianfloras.', false, 'cb'); ?>
+							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'victorianfloras.', true, 'cb'); ?>
 						</td>
 						<td align="center">
 							<?php echo $row->id; ?>
@@ -75,4 +78,5 @@ defined('_JEXEC') or die('Restricted Access');
 	</table>
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="boxchecked" value="0" />
+	<?php echo JHtml::_('form.token'); ?>
 </form>

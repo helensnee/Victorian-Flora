@@ -38,7 +38,25 @@ class VictorianFloraViewVictorianFloras extends JViewLegacy
 			return false;
 		}
 
+		// Set the toolbar
+		$this->addToolBar();
+		
 		// Display the template
 		parent::display($tpl);
+	}
+		
+	/**
+	 * Add the page title and toolbar.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.6
+	 */
+	protected function addToolBar()
+	{
+		JToolbarHelper::title(JText::_('COM_VICTORIANFLORA_MANAGER_VICTORIANFLORAS'));
+		JToolbarHelper::addNew('victorianflora.add');
+		JToolbarHelper::editList('victorianflora.edit');
+		JToolbarHelper::deleteList('Are you really, really sure?', 'victorianfloras.delete');
 	}
 }
