@@ -10,6 +10,11 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+
+// Set some global property
+$document = JFactory::getDocument();
+$document->addStyleDeclaration('.icon-victorianflora {background-image: url(../media/com_victorianflora/images/Tux-16x16.png);}');
+
 // Get an instance of the controller prefixed by VictorianFlora
 $controller = JControllerLegacy::getInstance('VictorianFlora');
 

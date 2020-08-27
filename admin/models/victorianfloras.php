@@ -57,6 +57,27 @@ class VictorianFloraModelVictorianFloras extends JModelList
 		$query->select('*')
                 ->from($db->quoteName('#__victorianflora'));
 				
+		// Filter: like / search
+		$search = $this->getState('filter.search');
+
+		if (!empty($search))
+		{
+			$like = $db->quote('%' . $search . '%');
+			$query->where('BotanicalName LIKE ' . $like);
+		}
+
+		// Filter by published state
+		$published = $this->getState('filter.published');
+
+		if (is_numeric($published))
+		{
+			$query->where('published = ' . (int) $published);
+		}
+		elseif ($published === '')
+		{
+			$query->where('(published IN (0, 1))');
+		}
+		
 		// Add the list ordering clause.
 		$orderCol	= $this->state->get('list.ordering', 'BotanicalName');
 		$orderDirn 	= $this->state->get('list.direction', 'asc');

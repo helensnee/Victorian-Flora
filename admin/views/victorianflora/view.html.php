@@ -51,6 +51,10 @@ class VictorianFloraViewVictorianFlora extends JViewLegacy
 
 		// Display the template
 		parent::display($tpl);
+		
+		// Set the document
+		$this->setDocument();
+		
 	}
 
 	/**
@@ -85,4 +89,19 @@ class VictorianFloraViewVictorianFlora extends JViewLegacy
 			$isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
 		);
 	}
+	
+	/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument() 
+	{
+		$isNew = ($this->item->id < 1);
+		$document = JFactory::getDocument();
+		$document->setTitle($isNew ? JText::_('COM_VICTORIANFLORA_VICTORIANFLORA_CREATING') :
+                JText::_('COM_VICTORIANFLORA_VICTORIANFLORA_EDITING'));
+				
+	}
+	
 }

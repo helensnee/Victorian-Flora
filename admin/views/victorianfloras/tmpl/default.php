@@ -10,10 +10,26 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 
+
+JHtml::_('formbehavior.chosen', 'select');
+
 $listOrder     = $this->escape($this->filter_order);
 $listDirn      = $this->escape($this->filter_order_Dir);
 ?>
 <form action="index.php?option=com_victorianflora&view=victorianfloras" method="post" id="adminForm" name="adminForm">
+	<div class="row-fluid">
+		<div class="span6">
+			<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_FILTER'); ?>
+			<?php
+				echo JLayoutHelper::render(
+					'joomla.searchtools.default',
+					array('view' => $this)
+				);
+			?>
+		</div>
+	</div>
+	
+	
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>

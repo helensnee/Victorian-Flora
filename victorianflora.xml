@@ -47,9 +47,14 @@
 		<language tag="en-GB">en-GB/en-GB.com_victorianflora.ini</language>
 	</languages>
 	
+	<media destination="com_victorianflora" folder="media">
+		<filename>index.html</filename>
+		<folder>images</folder>
+	</media>
+	
 	<administration>
 		<!-- Administration Menu Section -->
-		<menu link='index.php?option=com_victorianflora'>COM_VICTORIANFLORA_MENU</menu>
+		<menu link='index.php?option=com_victorianflora' img="../media/com_victorianflora/images/Tux-16x16.png">COM_VICTORIANFLORA_MENU</menu>
 		<!-- Administration Main File Copy Section -->
 		<!-- Note the folder attribute: This attribute describes the folder
 			to copy FROM in the package to install therefore files copied

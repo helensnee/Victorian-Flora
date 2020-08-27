@@ -26,18 +26,20 @@ class VictorianFloraViewVictorianFloras extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-				// Get application
+		// Get application
 		$app = JFactory::getApplication();
-		$context = "helloworld.list.admin.helloworld";
+		$context = "victorianflora.list.admin.victorianflora";
 		
 		// Get data from the model
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
+	
+		$this->state			= $this->get('State');
 		
 		$this->filter_order 	= $app->getUserStateFromRequest($context.'filter_order', 'filter_order', 'BotanicalName', 'cmd');
 		$this->filter_order_Dir = $app->getUserStateFromRequest($context.'filter_order_Dir', 'filter_order_Dir', 'asc', 'cmd');
-
-
+		$this->filterForm    	= $this->get('FilterForm');
+		$this->activeFilters 	= $this->get('ActiveFilters');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -47,11 +49,15 @@ class VictorianFloraViewVictorianFloras extends JViewLegacy
 			return false;
 		}
 
-		// Set the toolbar
+		// Set the toolbar and number of found items
 		$this->addToolBar();
 		
 		// Display the template
 		parent::display($tpl);
+		
+		// Set the document
+		$this->setDocument();
+		
 	}
 		
 	/**
@@ -63,9 +69,30 @@ class VictorianFloraViewVictorianFloras extends JViewLegacy
 	 */
 	protected function addToolBar()
 	{
-		JToolbarHelper::title(JText::_('COM_VICTORIANFLORA_MANAGER_VICTORIANFLORAS'));
+		
+		$title = JText::_('COM_VICTORIANFLORA_MANAGER_VICTORIANFLORAS');
+
+		if ($this->pagination->total)
+		{
+			$title .= "  <span style='font-size: 0.5em; vertical-align: middle;'>(" . $this->pagination->total . ")</span>";
+		}
+
+		JToolBarHelper::title($title, 'victorianflora');			
 		JToolbarHelper::addNew('victorianflora.add');
 		JToolbarHelper::editList('victorianflora.edit');
 		JToolbarHelper::deleteList('Are you really, really sure?', 'victorianfloras.delete');
 	}
+	
+	/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument() 
+	{
+		$document = JFactory::getDocument();
+		$document->setTitle(JText::_('COM_VICTORIANFLORA_ADMINISTRATION'));
+	}
+	
+	
 }
