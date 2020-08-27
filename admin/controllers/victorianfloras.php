@@ -3,10 +3,10 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-class VictorianFloraControllerVictorianFloras extends JControllerLegacy
+class VictorianFloraControllerVictorianFloras extends JControllerAdmin
 {
 	
-	
+	/*
 	public function delete()
 	{
 			
@@ -20,15 +20,14 @@ class VictorianFloraControllerVictorianFloras extends JControllerLegacy
 		JFactory::getApplication()->enqueueMessage($msg);
 		$this->setRedirect(JRoute::_('index.php?option=com_victorianflora&view=victorianfloras', $msg));
 	}
+	*/
 	
-	/*
 	public function getModel($name = 'VictorianFlora', $prefix = 'VictorianFloraModel', $config = array('ignore_request' => true))
 	{
 		$model = parent::getModel($name, $prefix, $config);
 
 		return $model;
 	}
-	*/
 	
 }
 

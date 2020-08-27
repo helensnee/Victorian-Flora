@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="PlantNo"
+				type="number"
+				label="COM_VICTORIANFLORA_VICTORIANFLORA_PLANTNO_LABEL"
+				description="COM_VICTORIANFLORA_VICTORIANFLORA_PLANTNO_DESC"
+				size="20"
+				class="inputbox"
+				default=""
+				/>		
+		<field
+				name="BotanicalName"
+				type="text"
+				label="COM_VICTORIANFLORA_VICTORIANFLORA_BOTANICALNAME_LABEL"
+				description="COM_VICTORIANFLORA_VICTORIANFLORA_BOTANICALNAME_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+
+		<field
+				name="CommonName"
+				type="text"
+				label="COM_VICTORIANFLORA_VICTORIANFLORA_COMMONNAME_LABEL"
+				description="COM_VICTORIANFLORA_VICTORIANFLORA_COMMONNAME_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+				
+	</fieldset>
+</form>
