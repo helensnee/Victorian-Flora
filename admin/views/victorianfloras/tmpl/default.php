@@ -9,6 +9,9 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
+
+$listOrder     = $this->escape($this->filter_order);
+$listDirn      = $this->escape($this->filter_order_Dir);
 ?>
 <form action="index.php?option=com_victorianflora&view=victorianfloras" method="post" id="adminForm" name="adminForm">
 	<table class="table table-striped table-hover">
@@ -18,20 +21,20 @@ defined('_JEXEC') or die('Restricted Access');
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
-			<th width="10%">
-				<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_PLANTNO') ;?>
+			<th width="10%">				
+				<?php echo JHtml::_('grid.sort', 'COM_VICTORIANFLORA_VICTORIANFLORAS_PLANTNO', 'PlantNo', $listDirn, $listOrder); ?>
 			</th>
 			<th width="50%">
-				<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_BOTANICALNAME') ;?>
+				<?php echo JHtml::_('grid.sort', 'COM_VICTORIANFLORA_VICTORIANFLORAS_BOTANICALNAME', 'BotanicalName', $listDirn, $listOrder); ?>
 			</th>
 			<th width="30%">
-				<?php echo JText::_('COM_VICTORIANFLORA_VICTORIANFLORAS_COMMONNAME') ;?>
+				<?php echo JHtml::_('grid.sort', 'COM_VICTORIANFLORA_VICTORIANFLORAS_COMMONNAME', 'CommonName', $listDirn, $listOrder); ?>
 			</th>
 			<th width="5%">
-				<?php echo JText::_('COM_VICTORIANFLORA_PUBLISHED'); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_VICTORIANFLORA_PUBLISHED', 'published', $listDirn, $listOrder); ?>
 			</th>
 			<th width="2%">
-				<?php echo JText::_('COM_VICTORIANFLORA_ID'); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_VICTORIANFLORA_ID', 'id', $listDirn, $listOrder); ?>
 			</th>
 		</tr>
 		</thead>
@@ -78,5 +81,8 @@ defined('_JEXEC') or die('Restricted Access');
 	</table>
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="boxchecked" value="0" />
+	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
+	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
 	<?php echo JHtml::_('form.token'); ?>
+	
 </form>

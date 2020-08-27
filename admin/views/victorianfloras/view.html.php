@@ -26,9 +26,18 @@ class VictorianFloraViewVictorianFloras extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
+				// Get application
+		$app = JFactory::getApplication();
+		$context = "helloworld.list.admin.helloworld";
+		
 		// Get data from the model
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
+		
+		$this->filter_order 	= $app->getUserStateFromRequest($context.'filter_order', 'filter_order', 'BotanicalName', 'cmd');
+		$this->filter_order_Dir = $app->getUserStateFromRequest($context.'filter_order_Dir', 'filter_order_Dir', 'asc', 'cmd');
+
+
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))

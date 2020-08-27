@@ -22,7 +22,7 @@ class VictorianFloraViewVictorianFlora extends JViewLegacy
 	 *
 	 * @var         form
 	 */
-	// protected $form = null;
+	protected $form = null;
 
 	/**
 	 * Display the Victorian Flora view
